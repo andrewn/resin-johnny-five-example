@@ -1,0 +1,20 @@
+{
+    "name": "resin-johnny-five-example",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "start": "node index",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "dependencies": {
+        "board-io": "^3.0.5",
+        "johnny-five": "^0.10.6",
+        "node-fetch": "1.6.3"
+    },
+    "optionalDependencies": {
+        "raspi-io": "^7.2.3"
+    },
+    "author": "",
+    "license": "Apache-2"
+}

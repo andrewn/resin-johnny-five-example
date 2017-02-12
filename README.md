@@ -1,0 +1,1 @@
+Minimal test case to get [Johnny-Five](https://github.com/rwaldron/johnny-five) working on [ResinOS](https://resinos.io/).

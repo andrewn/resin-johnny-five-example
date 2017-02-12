@@ -1,0 +1,6 @@
+local_resinos:
+  app-name: resin-johnny-five-example
+  build-triggers:
+    - Dockerfile: 50b1566d1375ba5d81023ab490ebcd249552881ac91aa0ad86a6f03bf5b92a96
+    - package.json: c442aae42219ded08c6456e5e1008d6493f3f52d870706c2ba4f0966819ad276
+  environment: []
