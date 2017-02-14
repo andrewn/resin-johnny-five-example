@@ -1,30 +1,17 @@
-FROM resin/raspberrypi2-node
+FROM resin/raspberrypi2-alpine-node:5-edge
 
-# WiringPi
-# Install dependencies
-# From: https://blog.hypriot.com/post/docker-sensor-fu-on-a-raspberry-pi/
-RUN apt-get update && apt-get install -y \
-    git-core \
-    build-essential \
-    gcc \
-    python \
-    python-dev \
-    python-pip \
-    python-virtualenv \
-    --no-install-recommends && \
-    rm -rf /var/lib/apt/lists/*
-
-RUN pip install pyserial
-RUN git clone git://git.drogon.net/wiringPi
-RUN cd wiringPi && ./build
-RUN pip install wiringpi2
+RUN apk add --no-cache wiringpi
 
 WORKDIR /usr/src/app
 
 COPY package.json package.json
 
+RUN git clone git://git.drogon.net/wiringPi /usr/src/wiringPi && \
+    cp /usr/src/wiringPi/wiringPi/*.h /usr/local/include/
+
 RUN npm install
 
 COPY . .
 
-CMD modprobe i2c-dev && node index
+# CMD node index
+CMD node wait
